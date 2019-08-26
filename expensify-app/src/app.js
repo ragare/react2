@@ -21,12 +21,8 @@ store.dispatch(addExpense({ description: 'Gas bill', amount: 15000, createdAt: 1
 // add gas bill
 store.dispatch(addExpense({ description: 'Rent', amount: 195000 }))
 
-store.dispatch(sortByAmount())
+store.dispatch(sortByDate())
 
-// getVisibleExpenses
-const { expenses, filters } = store.getState()
-const visibleExpenses = getVisibleExpenses(expenses, filters)
-console.log(visibleExpenses)
 const jsx = (
     <Provider store={store}>
         <AppRouter />
