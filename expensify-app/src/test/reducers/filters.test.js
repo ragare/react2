@@ -16,7 +16,7 @@ test('should set sortBy to amount', () => {
     expect(state.sortBy).toBe('amount')
 })
 
-test('should ser sortBy to date', () => {
+test('should set sortBy to date', () => {
     const currentState = {
         text: '',
         sortBy: 'amount',
@@ -28,4 +28,31 @@ test('should ser sortBy to date', () => {
     }
     const state = filterReducer(currentState, action)
     expect(state.sortBy).toBe('date')
+})
+
+test('should set text filter', () => {
+    const action = {
+        type: 'SET_TEXT_FILTER',
+        text: 'okama'
+    }
+    const state = filterReducer(undefined, action)
+    expect(state.text).toBe('okama')
+})
+
+test('should set startDate filter', () => {
+    const action = {
+        type: 'SET_START_DATE',
+        startDate: moment(0)
+    }
+    const state = filterReducer(undefined, action)
+    expect(state.startDate).toEqual(moment(0))
+})
+
+test('should set endDate filter', () => {
+    const action = {
+        type: 'SET_END_DATE',
+        endDate: moment(0)
+    }
+    const state = filterReducer(undefined, action)
+    expect(state.endDate).toEqual(moment(0))
 })
